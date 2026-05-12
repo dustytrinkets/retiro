@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-import { BOTANY_SRCS, SECTION_BOTANY } from "./botanyAssets.js";
+import {
+  ANILLAS_SRC,
+  BASE_PLANTS_SRC,
+  BOTANY_SRCS,
+  SECTION_BOTANY,
+} from "./botanyAssets.js";
 
 const sections = [
   {
@@ -175,78 +180,111 @@ export function App() {
   const activeSection = sections.find(
     (section) => section.id === activeSectionId,
   );
-  const botanySrc =
-    SECTION_BOTANY[activeSectionId] ?? SECTION_BOTANY.inicio;
+  const botanySrc = SECTION_BOTANY[activeSectionId] ?? SECTION_BOTANY.inicio;
 
   return (
-    <main className="page-shell">
-      <div className="ambient ambient--one" />
-      <div className="ambient ambient--two" />
+    <>
+      <main className="page-shell">
+        <div className="ambient ambient--two" />
 
-      <aside className="side-panel" aria-label="Navegacion principal">
-        <a
-          className="brand"
-          href="#inicio"
-          onClick={(event) => event.preventDefault()}
-        >
-          Circulo de mujeres
-        </a>
-        <nav className="orb-menu">
-          {sections.map((section, index) => (
-            <button
-              className={
-                section.id === activeSection.id ? "orb is-active" : "orb"
-              }
-              key={section.id}
-              onClick={() => setActiveSectionId(section.id)}
-              style={{ "--i": index }}
-              type="button"
-            >
-              <span className="orb__dot" />
-              <span>{section.label}</span>
-            </button>
-          ))}
-        </nav>
-      </aside>
+        <aside className="side-panel" aria-label="Navegacion principal">
+          <a
+            className="brand"
+            href="#inicio"
+            onClick={(event) => event.preventDefault()}
+          >
+            Circulo de mujeres
+          </a>
+          <nav className="orb-menu">
+            {sections.map((section, index) => (
+              <button
+                className={
+                  section.id === activeSection.id ? "orb is-active" : "orb"
+                }
+                key={section.id}
+                onClick={() => setActiveSectionId(section.id)}
+                style={{ "--i": index }}
+                type="button"
+              >
+                <span className="orb__dot" />
+                <span>{section.label}</span>
+              </button>
+            ))}
+          </nav>
+        </aside>
 
-      <section className="content-card" aria-live="polite">
-        <div className="content-card__botany" aria-hidden="true">
-          {BOTANY_SRCS.map((src) => (
-            <img
-              alt=""
-              className={
-                botanySrc === src
-                  ? "content-card__botany-img content-card__botany-img--active"
-                  : "content-card__botany-img"
-              }
-              decoding="async"
-              fetchPriority={botanySrc === src ? "high" : "low"}
-              key={src}
-              loading="eager"
-              src={src}
-            />
-          ))}
-        </div>
-        <div className="content-card__copy">
-          <p className="eyebrow">{activeSection.eyebrow}</p>
-          <h1>{activeSection.title}</h1>
-          <p className="lead">{activeSection.text}</p>
-          {activeSection.action ? (
-            <a
-              className="text-link"
-              href={activeSection.action.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {activeSection.action.label}
-            </a>
-          ) : null}
-        </div>
+        <div className="content-stack">
+          <img
+            alt=""
+            aria-hidden="true"
+            className="content-stack__anillas"
+            decoding="async"
+            fetchPriority="high"
+            loading="eager"
+            src={ANILLAS_SRC}
+          />
+          <section className="content-card" aria-live="polite">
+            <div className="content-card__botany" aria-hidden="true">
+              {BOTANY_SRCS.map((src) => (
+                <img
+                  alt=""
+                  className={
+                    botanySrc === src
+                      ? "content-card__botany-img content-card__botany-img--active"
+                      : "content-card__botany-img"
+                  }
+                  decoding="async"
+                  fetchPriority={botanySrc === src ? "high" : "low"}
+                  key={src}
+                  loading="eager"
+                  src={src}
+                />
+              ))}
+            </div>
+            <div className="content-card__copy">
+              <p className="eyebrow">{activeSection.eyebrow}</p>
+              <h1>{activeSection.title}</h1>
+              <div
+                className={`section-visual section-visual--${activeSection.id}`}
+                aria-hidden="true"
+              />
+              <p className="lead">{activeSection.text}</p>
+              {activeSection.action ? (
+                <a
+                  className="text-link"
+                  href={activeSection.action.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {activeSection.action.label}
+                </a>
+              ) : null}
+            </div>
 
-        <div className="content-card__details">
-          <SectionBody section={activeSection} />
+            <div className="content-card__details">
+              <SectionBody section={activeSection} />
+            </div>
+          </section>
         </div>
-      </section>
-    </main>
+      </main>
+      <img
+        alt=""
+        aria-hidden="true"
+        className="page-base-plants page-base-plants--tl"
+        decoding="async"
+        fetchPriority="low"
+        loading="eager"
+        src={BASE_PLANTS_SRC}
+      />
+      <img
+        alt=""
+        aria-hidden="true"
+        className="page-base-plants page-base-plants--br"
+        decoding="async"
+        fetchPriority="high"
+        loading="eager"
+        src={BASE_PLANTS_SRC}
+      />
+    </>
   );
 }

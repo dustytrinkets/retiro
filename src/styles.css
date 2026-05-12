@@ -105,6 +105,39 @@ button {
   z-index: 2;
 }
 
+.page-base-plants {
+  filter: sepia(0.05);
+  height: auto;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  position: fixed;
+  user-select: none;
+  z-index: 3;
+}
+
+.page-base-plants--br {
+  bottom: clamp(-0.35rem, -1.2vw, 0.5rem);
+  left: auto;
+  max-height: min(60vh, 34rem);
+  opacity: 0.58;
+  right: clamp(-0.75rem, -1.5vw, 0.75rem);
+  top: auto;
+  transform: none;
+  width: clamp(12rem, 36vw, 26rem);
+}
+
+.page-base-plants--tl {
+  bottom: auto;
+  left: clamp(1.65rem, 1.5vw, 1.75rem);
+  max-height: min(52vh, 28rem);
+  opacity: 0.5;
+  right: auto;
+  top: clamp(1.25rem, -1.5vw, 0.5rem);
+  transform: rotate(270deg) scaleY(-1);
+  transform-origin: 45% 45%;
+  width: clamp(10rem, 30vw, 21rem);
+}
+
 .ambient {
   border: 1px solid rgba(176, 120, 72, 0.22);
   border-radius: 999px;
@@ -218,8 +251,34 @@ button {
     0 0 1.1rem rgba(176, 120, 72, 0.35);
 }
 
-.content-card {
+.content-stack {
+  align-items: center;
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 1.2vw, 0.9rem);
+  min-width: 0;
+  width: 100%;
+  position: relative;
+}
+
+.content-stack__anillas {
+  display: block;
+  filter: sepia(0.06);
+  height: auto;
+  max-width: min(22rem, 94%);
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+  pointer-events: none;
+  user-select: none;
+  width: clamp(6.5rem, 18vw, 14rem);
+  position: absolute;
+  top: -30px;
+  z-index: 2;
+}
+
+.content-card {
+  align-self: stretch;
   background:
     linear-gradient(
       168deg,
@@ -237,7 +296,7 @@ button {
   gap: clamp(2rem, 5vw, 5rem);
   grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.78fr);
   min-height: min(44rem, calc(100vh - clamp(2rem, 6vw, 5rem)));
-  padding: clamp(1.5rem, 5vw, 5rem);
+  padding: clamp(1.5rem, 4vw, 5rem);
   position: relative;
 }
 
@@ -253,15 +312,17 @@ button {
   --botany-base-transform: rotate(-14deg);
   filter: sepia(0.06);
   height: auto;
-  left: clamp(-1rem, -2vw, -0.25rem);
+  right: 0;
+  /* left: clamp(-1rem, -2vw, -0.25rem); */
   mix-blend-mode: multiply;
   opacity: 0;
   position: absolute;
-  top: clamp(0.2rem, 3vw, 1.25rem);
+  /* bottom: clamp(0.2rem, 3vw, 1.25rem); */
+  bottom: 0;
   transform: var(--botany-base-transform);
   transform-origin: 40% 20%;
   user-select: none;
-  width: clamp(7rem, 19vw, 13rem);
+  width: clamp(6rem, 16vw, 11rem);
   z-index: 0;
   --botany-opacity: 0.48;
 }
@@ -484,6 +545,10 @@ h3 {
     padding-right: 0.9rem;
   }
 
+  .content-stack__anillas {
+    width: clamp(5.5rem, 32vw, 12rem);
+  }
+
   .content-card {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -497,15 +562,33 @@ h3 {
     opacity: 0.35;
   }
 
+  .page-base-plants--br {
+    max-height: min(46vh, 26rem);
+    opacity: 0.5;
+    width: clamp(9.5rem, 42vw, 18rem);
+  }
+
+  .page-base-plants--tl {
+    left: clamp(-0.15rem, 2vw, 1.35rem);
+    max-height: min(40vh, 22rem);
+    opacity: 0.46;
+    top: clamp(-0.35rem, 1vw, 0.65rem);
+    width: clamp(8rem, 34vw, 16rem);
+  }
+
   .content-card__botany-img {
     --botany-opacity: 0.38;
-    width: clamp(5.5rem, 26vw, 9rem);
+    width: clamp(4.75rem, 22vw, 7.75rem);
   }
 }
 
 @media (max-width: 560px) {
   .page-shell {
     padding: 0.85rem;
+  }
+
+  .content-stack__anillas {
+    width: clamp(5rem, 40vw, 10rem);
   }
 
   .content-card {
@@ -517,13 +600,29 @@ h3 {
     display: none;
   }
 
+  .page-base-plants--br {
+    bottom: 0.15rem;
+    max-height: min(42vh, 22rem);
+    opacity: 0.46;
+    right: 0.05rem;
+    width: clamp(7.5rem, 48vw, 14rem);
+  }
+
+  .page-base-plants--tl {
+    left: clamp(0.15rem, 2.5vw, 1rem);
+    max-height: min(36vh, 18rem);
+    opacity: 0.44;
+    top: 0.1rem;
+    width: clamp(6.25rem, 40vw, 12rem);
+  }
+
   .content-card__botany-img {
     --botany-opacity: 0.32;
     filter: sepia(0.04);
     left: -0.35rem;
     mix-blend-mode: multiply;
     top: 0.25rem;
-    width: clamp(4.8rem, 32vw, 7rem);
+    width: clamp(4rem, 28vw, 6rem);
   }
 
   h1 {
