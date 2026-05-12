@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { ANILLAS_SRC, SECTION_BOTANY } from "./botanyAssets.js";
 
@@ -22,14 +22,6 @@ const sections = [
     title: "Ritmo del fin de semana",
     text: "Los horarios se pueden ajustar segun el pulso del grupo. La idea es sostener una estructura clara sin perder espacio para el descanso.",
     schedule: [
-      {
-        day: "Viernes",
-        events: [
-          { time: "17:00", title: "Llegada y bienvenida" },
-          { time: "19:00", title: "Apertura del circulo" },
-          { time: "21:00", title: "Cena compartida" },
-        ],
-      },
       {
         day: "Viernes",
         events: [
@@ -129,8 +121,8 @@ function SectionBody({ section }) {
   if (section.schedule) {
     return (
       <div className="timeline" aria-label="Horarios del retiro">
-        {section.schedule.map((day) => (
-          <article className="timeline__day" key={day.day}>
+        {section.schedule.map((day, dayIndex) => (
+          <article className="timeline__day" key={`${day.day}-${dayIndex}`}>
             <h3>{day.day}</h3>
             <ul>
               {day.events.map((event) => (
@@ -181,45 +173,109 @@ function SectionBody({ section }) {
 export function App() {
   const [activeSectionId, setActiveSectionId] = useState("inicio");
   const [transitionDirection, setTransitionDirection] = useState("from-top");
+  const scrollLockRef = useRef(false);
+  const touchStartYRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
+  const activeSectionIndex = sections.findIndex(
+    (section) => section.id === activeSectionId,
+  );
   const activeSection = sections.find(
     (section) => section.id === activeSectionId,
   );
 
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function lockScrollNavigation() {
+    scrollLockRef.current = true;
+    if (scrollTimeoutRef.current) {
+      window.clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = window.setTimeout(() => {
+      scrollLockRef.current = false;
+    }, 760);
+  }
+
+  function selectSectionByIndex(nextIndex) {
+    if (nextIndex < 0 || nextIndex >= sections.length) return;
+    if (nextIndex === activeSectionIndex) return;
+
+    setTransitionDirection(
+      nextIndex > activeSectionIndex ? "from-top" : "from-bottom",
+    );
+    setActiveSectionId(sections[nextIndex].id);
+  }
+
   function selectSection(sectionId) {
     if (sectionId === activeSectionId) return;
 
-    const currentIndex = sections.findIndex(
-      (section) => section.id === activeSectionId,
+    selectSectionByIndex(
+      sections.findIndex((section) => section.id === sectionId),
     );
-    const nextIndex = sections.findIndex((section) => section.id === sectionId);
+  }
 
-    setTransitionDirection(
-      nextIndex > currentIndex ? "from-top" : "from-bottom",
-    );
-    setActiveSectionId(sectionId);
+  function handleWheel(event) {
+    if (Math.abs(event.deltaY) < 18 || scrollLockRef.current) return;
+
+    const nextIndex = activeSectionIndex + (event.deltaY > 0 ? 1 : -1);
+    if (nextIndex < 0 || nextIndex >= sections.length) return;
+
+    event.preventDefault();
+    lockScrollNavigation();
+    selectSectionByIndex(nextIndex);
+  }
+
+  function handleTouchStart(event) {
+    touchStartYRef.current = event.touches[0]?.clientY ?? null;
+  }
+
+  function handleTouchEnd(event) {
+    if (touchStartYRef.current === null || scrollLockRef.current) return;
+
+    const touchEndY =
+      event.changedTouches[0]?.clientY ?? touchStartYRef.current;
+    const deltaY = touchStartYRef.current - touchEndY;
+    touchStartYRef.current = null;
+
+    if (Math.abs(deltaY) < 48) return;
+
+    const nextIndex = activeSectionIndex + (deltaY > 0 ? 1 : -1);
+    if (nextIndex < 0 || nextIndex >= sections.length) return;
+
+    lockScrollNavigation();
+    selectSectionByIndex(nextIndex);
   }
 
   return (
     <>
-      <main className="page-shell">
-
+      <main
+        className="page-shell"
+        onTouchEnd={handleTouchEnd}
+        onTouchStart={handleTouchStart}
+        onWheel={handleWheel}
+      >
         <div className="content-card__botany" aria-hidden="true">
-              {Object.entries(SECTION_BOTANY).map(([sectionId, src]) => (
-                <img
-                  alt=""
-                  className={
-                    activeSectionId === sectionId
-                    ? `content-card__botany-img content-card__botany-img--${sectionId} content-card__botany-img--active content-card__botany-img--${transitionDirection}`
-                    : `content-card__botany-img content-card__botany-img--${sectionId}`
-                  }
-                  decoding="async"
-                  fetchPriority={activeSectionId === sectionId ? "high" : "low"}
-                  key={src}
-                  loading="eager"
-                  src={src}
-                />
-              ))}
-            </div>
+          {Object.entries(SECTION_BOTANY).map(([sectionId, src]) => (
+            <img
+              alt=""
+              className={
+                activeSectionId === sectionId
+                  ? `content-card__botany-img content-card__botany-img--${sectionId} content-card__botany-img--active content-card__botany-img--${transitionDirection}`
+                  : `content-card__botany-img content-card__botany-img--${sectionId}`
+              }
+              decoding="async"
+              fetchPriority={activeSectionId === sectionId ? "high" : "low"}
+              key={src}
+              loading="eager"
+              src={src}
+            />
+          ))}
+        </div>
 
         <aside className="side-panel" aria-label="Navegacion principal">
           <a
