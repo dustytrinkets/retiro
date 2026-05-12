@@ -1,3 +1,5 @@
+import React from "react";
+
 const navLinks = [
   { href: "#horarios", label: "Horarios" },
   { href: "#lugar", label: "Como llegar" },
