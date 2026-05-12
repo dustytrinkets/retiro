@@ -35,7 +35,7 @@ html {
 
   50% {
     opacity: 0.88;
-    transform: scale(1.03);
+    transform: scale(1.10);
   }
 }
 
@@ -48,7 +48,31 @@ html {
 
   50% {
     opacity: 0.82;
-    transform: scale(1.05);
+    transform: scale(1.10);
+  }
+}
+
+@keyframes botany-carousel-down {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -82%) scale(1.08);
+  }
+
+  100% {
+    opacity: var(--botany-opacity);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes botany-carousel-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -18%) scale(1.08);
+  }
+
+  100% {
+    opacity: var(--botany-opacity);
+    transform: translate(-50%, -50%) scale(1.08);
   }
 }
 
@@ -126,42 +150,32 @@ button {
   width: clamp(12rem, 36vw, 26rem);
 }
 
-.page-base-plants--tl {
-  bottom: auto;
-  left: clamp(1.65rem, 1.5vw, 1.75rem);
-  max-height: min(52vh, 28rem);
-  opacity: 0.5;
-  right: auto;
-  top: clamp(1.25rem, -1.5vw, 0.5rem);
-  transform: rotate(270deg) scaleY(-1);
-  transform-origin: 45% 45%;
-  width: clamp(10rem, 30vw, 21rem);
-}
-
 .ambient {
-  border: 1px solid rgba(176, 120, 72, 0.22);
+  /* border: 1px solid rgba(176, 120, 72, 0.22); */
   border-radius: 999px;
   pointer-events: none;
   position: absolute;
   transform-origin: center;
   z-index: -1;
+  background-color: #c2bcb045;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .ambient--one {
-    animation: ambient-breathe 22s ease-in-out infinite;
+    animation: ambient-breathe 10s ease-in-out infinite;
+    animation-delay: -7s;
   }
-
   .ambient--two {
-    animation: ambient-breathe-slow 28s ease-in-out infinite;
+    animation: ambient-breathe-slow 10s ease-in-out infinite;
     animation-delay: -7s;
   }
 }
 
 .ambient--one {
-  box-shadow:
-    inset 0 0 120px rgba(107, 130, 104, 0.08),
-    0 0 80px rgba(176, 120, 72, 0.06);
+  /* box-shadow: rgba(107, 130, 104, 0.08) 0px 0px 120px inset, rgba(176, 120, 72, 0.06) 0px 0px 80px; */
+  background:
+    radial-gradient(circle at 38% 42%, rgba(232, 210, 188, 0.35), transparent 62%),
+    rgba(168, 181, 159, 0.22);
   height: 42rem;
   left: -20rem;
   top: -16rem;
@@ -277,6 +291,14 @@ button {
   z-index: 2;
 }
 
+.content-stack__anillas.left{
+  left:10px;
+}
+
+.content-stack__anillas.right{
+  right:10px;
+}
+
 .content-card {
   align-self: stretch;
   background:
@@ -302,29 +324,37 @@ button {
 
 .content-card__botany {
   inset: 0;
-  overflow: visible;
+  overflow: hidden;
   pointer-events: none;
   position: absolute;
   z-index: 0;
 }
 
 .content-card__botany-img {
-  --botany-base-transform: rotate(-14deg);
   filter: sepia(0.06);
-  height: auto;
-  right: 0;
-  /* left: clamp(-1rem, -2vw, -0.25rem); */
+  height: 118%;
+  left: var(--botany-left, 50%)!important;
   mix-blend-mode: multiply;
   opacity: 0;
   position: absolute;
-  /* bottom: clamp(0.2rem, 3vw, 1.25rem); */
-  bottom: 0;
-  transform: var(--botany-base-transform);
-  transform-origin: 40% 20%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.08);
+  transform-origin: center;
   user-select: none;
-  width: clamp(6rem, 16vw, 11rem);
-  z-index: 0;
-  --botany-opacity: 0.48;
+  width: 118%;
+  object-fit: contain;
+  --botany-opacity: 0.22;
+}
+
+.content-card__botany-img--horarios,
+.content-card__botany-img--lugar,
+.content-card__botany-img--llevar,
+.content-card__botany-img--inicio {
+  --botany-left: 9%;
+}
+
+.content-card__botany-img--info {
+  --botany-left: 42%;
 }
 
 .content-card__botany-img--active {
@@ -332,9 +362,19 @@ button {
   z-index: 1;
 }
 
+.content-card__botany-img--from-top {
+  animation: botany-carousel-up 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.content-card__botany-img--from-bottom {
+  animation: botany-carousel-down 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .content-card__botany-img {
-    transition: opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    transition:
+      opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+      transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
   }
 }
 
@@ -522,7 +562,9 @@ h3 {
 
 @media (max-width: 920px) {
   .page-shell {
+    align-content: start;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     min-height: 100svh;
     overflow: auto;
   }
@@ -534,15 +576,22 @@ h3 {
   }
 
   .orb-menu {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.45rem;
-    overflow-x: auto;
-    padding-bottom: 0.35rem;
+    overflow: visible;
+    padding-bottom: 0;
+    width: 100%;
   }
 
   .orb {
-    flex: 0 0 auto;
-    padding-right: 0.9rem;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 0.4rem 0.25rem 0.4rem 0;
+  }
+
+  .content-stack {
+    align-self: start;
   }
 
   .content-stack__anillas {
@@ -568,23 +617,54 @@ h3 {
     width: clamp(9.5rem, 42vw, 18rem);
   }
 
-  .page-base-plants--tl {
-    left: clamp(-0.15rem, 2vw, 1.35rem);
-    max-height: min(40vh, 22rem);
-    opacity: 0.46;
-    top: clamp(-0.35rem, 1vw, 0.65rem);
-    width: clamp(8rem, 34vw, 16rem);
+  .content-card__botany-img {
+    --botany-opacity: 0.18;
+    height: 110%;
+    width: 130%;
   }
 
-  .content-card__botany-img {
-    --botany-opacity: 0.38;
-    width: clamp(4.75rem, 22vw, 7.75rem);
+  .content-stack__anillas.left{
+    display: none;
+  }
+  
+  .content-stack__anillas.right{
+    display: none;
   }
 }
 
 @media (max-width: 560px) {
   .page-shell {
+    gap: 1rem;
     padding: 0.85rem;
+  }
+
+  .side-panel {
+    gap: 0.9rem;
+  }
+
+  .brand {
+    font-size: 0.72rem;
+  }
+
+  .orb-menu {
+    gap: 0.35rem 0.45rem;
+  }
+
+  .orb {
+    font-size: 0.78rem;
+    gap: 0.36rem;
+    padding: 0.25rem 0;
+  }
+
+  .orb__dot {
+    height: 0.55rem;
+    width: 0.55rem;
+  }
+
+  .orb.is-active .orb__dot {
+    box-shadow:
+      0 0 0 0.28rem var(--ember),
+      0 0 0.7rem rgba(176, 120, 72, 0.28);
   }
 
   .content-stack__anillas {
@@ -608,21 +688,12 @@ h3 {
     width: clamp(7.5rem, 48vw, 14rem);
   }
 
-  .page-base-plants--tl {
-    left: clamp(0.15rem, 2.5vw, 1rem);
-    max-height: min(36vh, 18rem);
-    opacity: 0.44;
-    top: 0.1rem;
-    width: clamp(6.25rem, 40vw, 12rem);
-  }
-
   .content-card__botany-img {
-    --botany-opacity: 0.32;
+    --botany-opacity: 0.14;
     filter: sepia(0.04);
-    left: -0.35rem;
     mix-blend-mode: multiply;
-    top: 0.25rem;
-    width: clamp(4rem, 28vw, 6rem);
+    height: 108%;
+    width: 145%;
   }
 
   h1 {
