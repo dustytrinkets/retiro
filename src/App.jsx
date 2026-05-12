@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 
+/** PNG por seccion (public/plants/). Fuente editable: scripts/botanical-svg/*.svg */
+const SECTION_BOTANY = {
+  contacto: "/plants/contacto.png",
+  horarios: "/plants/horarios.png",
+  info: "/plants/info.png",
+  inicio: "/plants/inicio.png",
+  llevar: "/plants/llevar.png",
+  lugar: "/plants/lugar.png",
+};
+
 const sections = [
   {
     id: "inicio",
@@ -173,6 +183,8 @@ export function App() {
   const activeSection = sections.find(
     (section) => section.id === activeSectionId,
   );
+  const botanySrc =
+    SECTION_BOTANY[activeSectionId] ?? SECTION_BOTANY.inicio;
 
   return (
     <main className="page-shell">
@@ -206,6 +218,15 @@ export function App() {
       </aside>
 
       <section className="content-card" aria-live="polite">
+        <div className="content-card__botany" aria-hidden="true">
+          <img
+            alt=""
+            className="content-card__botany-img"
+            decoding="async"
+            key={activeSectionId}
+            src={botanySrc}
+          />
+        </div>
         <div className="content-card__copy">
           <p className="eyebrow">{activeSection.eyebrow}</p>
           <h1>{activeSection.title}</h1>

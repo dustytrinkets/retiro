@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" width="200" height="260">
+  <defs>
+    <linearGradient id="leaf1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aab79f"/>
+      <stop offset="100%" stop-color="#6b8268"/>
+    </linearGradient>
+    <linearGradient id="twine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b07848"/>
+      <stop offset="100%" stop-color="#8a5c38"/>
+    </linearGradient>
+  </defs>
+  <path fill="none" stroke="url(#twine)" stroke-width="5" stroke-linecap="round" d="M52 198c36-8 72-8 104 2"/>
+  <path fill="none" stroke="url(#twine)" stroke-width="4" stroke-linecap="round" opacity="0.85" d="M62 188c30-6 62-6 92 4"/>
+  <path fill="url(#leaf1)" d="M98 40c-18 32-22 68-14 108 16-12 28-28 34-48 6-22 4-44-6-56-6-6-10-6-14-4z"/>
+  <path fill="url(#leaf1)" opacity="0.88" d="M118 56c16 24 20 54 12 90-14-10-26-24-32-42-8-24-6-42 4-52 6-6 12-4 16 4z"/>
+  <path fill="url(#leaf1)" opacity="0.82" d="M76 72c-22 20-34 50-32 88 18-8 32-22 40-40 10-22 8-40-2-48-4-4-8-4-6 0z"/>
+  <path fill="url(#leaf1)" opacity="0.78" d="M132 88c12 28 10 60-8 94 12-16 20-36 22-58 4-24 0-38-8-38-4 0-6 2-6 2z"/>
+  <ellipse cx="100" cy="172" rx="38" ry="14" fill="#dce5d4" opacity="0.55"/>
+</svg>
