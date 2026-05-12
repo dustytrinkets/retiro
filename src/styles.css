@@ -119,10 +119,11 @@ button {
 }
 
 .page-shell {
+  align-items: center;
   display: grid;
   gap: clamp(1.5rem, 4vw, 4rem);
   grid-template-columns: minmax(14rem, 0.34fr) minmax(0, 1fr);
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   padding: clamp(1rem, 3vw, 2.5rem);
   position: relative;
@@ -247,15 +248,16 @@ button {
 .orb:hover,
 .orb.is-active {
   color: var(--text);
-  transform: translateX(0.2rem);
+  transform: none;
 }
 
 .orb__dot {
   border: 1px solid currentColor;
   border-radius: 999px;
   display: inline-block;
-  height: calc(0.72rem + var(--i) * 0.08rem);
-  width: calc(0.72rem + var(--i) * 0.08rem);
+  flex: 0 0 0.92rem;
+  height: 0.92rem;
+  width: 0.92rem;
 }
 
 .orb.is-active .orb__dot {
@@ -317,7 +319,8 @@ button {
   display: grid;
   gap: clamp(2rem, 5vw, 5rem);
   grid-template-columns: minmax(0, 0.92fr) minmax(18rem, 0.78fr);
-  min-height: min(44rem, calc(100vh - clamp(2rem, 6vw, 5rem)));
+  height: min(44rem, calc(100vh - clamp(2rem, 6vw, 5rem)));
+  min-height: 0;
   padding: clamp(1.5rem, 4vw, 5rem);
   position: relative;
 }
@@ -563,8 +566,10 @@ h3 {
 @media (max-width: 920px) {
   .page-shell {
     align-content: start;
+    align-items: start;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    height: auto;
     min-height: 100svh;
     overflow: auto;
   }
@@ -599,8 +604,9 @@ h3 {
   }
 
   .content-card {
+    height: auto;
     grid-template-columns: 1fr;
-    min-height: auto;
+    min-height: 34rem;
   }
 
   .content-card__details {
@@ -673,6 +679,7 @@ h3 {
 
   .content-card {
     border-radius: 1.4rem;
+    min-height: 35rem;
     padding: 1.35rem;
   }
 

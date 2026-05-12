@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ANILLAS_SRC, BOTANY_SRCS, SECTION_BOTANY } from "./botanyAssets.js";
+import { ANILLAS_SRC, SECTION_BOTANY } from "./botanyAssets.js";
 
 const sections = [
   {
@@ -240,7 +240,7 @@ export function App() {
         </aside>
 
         <div className="content-stack">
-        <img
+          <img
             alt=""
             aria-hidden="true"
             className="content-stack__anillas left"
