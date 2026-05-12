@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 
-/** PNG por seccion (public/plants/). Fuente editable: scripts/botanical-svg/*.svg */
-const SECTION_BOTANY = {
-  contacto: "/plants/contacto.png",
-  horarios: "/plants/horarios.png",
-  info: "/plants/info.png",
-  inicio: "/plants/inicio.png",
-  llevar: "/plants/llevar.png",
-  lugar: "/plants/lugar.png",
-};
+import { BOTANY_SRCS, SECTION_BOTANY } from "./botanyAssets.js";
 
 const sections = [
   {
@@ -219,13 +211,21 @@ export function App() {
 
       <section className="content-card" aria-live="polite">
         <div className="content-card__botany" aria-hidden="true">
-          <img
-            alt=""
-            className="content-card__botany-img"
-            decoding="async"
-            key={activeSectionId}
-            src={botanySrc}
-          />
+          {BOTANY_SRCS.map((src) => (
+            <img
+              alt=""
+              className={
+                botanySrc === src
+                  ? "content-card__botany-img content-card__botany-img--active"
+                  : "content-card__botany-img"
+              }
+              decoding="async"
+              fetchPriority={botanySrc === src ? "high" : "low"}
+              key={src}
+              loading="eager"
+              src={src}
+            />
+          ))}
         </div>
         <div className="content-card__copy">
           <p className="eyebrow">{activeSection.eyebrow}</p>
