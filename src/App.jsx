@@ -31,6 +31,14 @@ const sections = [
         ],
       },
       {
+        day: "Viernes",
+        events: [
+          { time: "17:00", title: "Llegada y bienvenida" },
+          { time: "19:00", title: "Apertura del circulo" },
+          { time: "21:00", title: "Cena compartida" },
+        ],
+      },
+      {
         day: "Sabado",
         events: [
           { time: "09:00", title: "Desayuno tranquilo" },
@@ -268,7 +276,7 @@ export function App() {
             src={ANILLAS_SRC}
           />
           <section className="content-card" aria-live="polite">
-            <div className="content-card__copy">
+            <div className="content-card__title">
               <p className="eyebrow">{activeSection.eyebrow}</p>
               <h1>{activeSection.title}</h1>
               <p className="lead">{activeSection.text}</p>
