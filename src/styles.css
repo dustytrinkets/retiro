@@ -337,7 +337,7 @@ button {
 }
 
 .content-card::before {
-  background: linear-gradient(180deg, rgb(243 232 218) 45%, rgb(244 233 220 / 52%) 50%, rgba(252, 247, 238, 0) 100%);
+  background: linear-gradient(180deg, rgb(246 237 225) 45%, rgb(246 237 225 / 52%) 50%, rgba(252, 247, 238, 0) 100%);
   border-radius: calc(clamp(1.65rem, 4.5vw, 3.15rem) - 1px) calc(clamp(2rem, 5vw, 3.75rem) - 1px) 0 0;
   content: "";
   height: 4.8rem;
