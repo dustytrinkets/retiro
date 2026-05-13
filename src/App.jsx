@@ -31,11 +31,11 @@ const sections = [
         events: [
           { time: "08:00", title: "Yoga" },
           { time: "09:00", title: "Desayuno tranquilo" },
-          { time: "11:00", title: "Practica corporal" },
+          { time: "11:00", title: "Taller TBD" },
           { time: "13:00", title: "Comida" },
-          { time: "16:00", title: "Taller y tiempo personal" },
+          { time: "16:00", title: "Taller TBD" },
           { time: "18:00", title: "Merienda?" },
-          { time: "18:30", title: "Taller y tiempo personal" },
+          { time: "18:30", title: "Taller TBD" },
           { time: "21:00", title: "Cena y fuego" },
         ],
       },
@@ -44,7 +44,7 @@ const sections = [
         events: [
           { time: "08:00", title: "Yoga" },
           { time: "09:00", title: "Desayuno tranquilo" },
-          { time: "10:00", title: "Algo?" },
+          { time: "10:00", title: "Taller TBD?" },
           { time: "12:00", title: "Cierre del círculo" },
           { time: "14:00", title: "Comida y despedida" },
         ],
