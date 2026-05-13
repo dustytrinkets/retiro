@@ -7,12 +7,13 @@ const sections = [
     id: "inicio",
     label: "Inicio",
     eyebrow: "Fin de semana de encuentro",
-    title: "Retiro de circulo de mujeres",
+    title: "Encuentro Micelio",
     text: "Un espacio cuidado para bajar el ritmo, compartir, descansar y reconectar con el cuerpo, la naturaleza y la palabra en grupo.",
     details: [
       "Viernes a domingo",
-      "Casa rural por confirmar",
+      "Sierra",
       "Plazas limitadas",
+      "Probando"
     ],
   },
   {
@@ -289,7 +290,7 @@ export function App() {
             href="#inicio"
             onClick={(event) => event.preventDefault()}
           >
-            Circulo de mujeres
+            Encuentro Micelio
           </a>
           <nav className="orb-menu">
             {sections.map((section, index) => (

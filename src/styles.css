@@ -375,11 +375,11 @@ button {
 .content-card__botany-img--horarios,
 .content-card__botany-img--lugar,
 .content-card__botany-img--llevar,
-.content-card__botany-img--inicio {
+.content-card__botany-img--info {
   --botany-left: 9%;
 }
 
-.content-card__botany-img--info {
+.content-card__botany-img--inicio {
   --botany-left: 42%;
 }
 

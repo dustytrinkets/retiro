@@ -1,4 +1,4 @@
-# Landing Retiro Circulo de Mujeres
+# Landing Encuentro Micelio
 
 Landing page en React para centralizar la informacion de un retiro de fin de semana.
 
