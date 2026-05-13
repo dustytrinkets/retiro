@@ -53,7 +53,7 @@ const sections = [
   },
   {
     id: "lugar",
-    label: "Llegar",
+    label: "Ubicacion",
     eyebrow: "Ubicacion",
     title: "Como llegar",
     text: "Aqui anadiremos la direccion exacta, el enlace al mapa, opciones de transporte publico y cualquier indicacion importante para llegar con calma.",
@@ -69,7 +69,7 @@ const sections = [
   },
   {
     id: "llevar",
-    label: "Llevar",
+    label: "Preparacion",
     eyebrow: "Preparacion",
     title: "Que llevar",
     text: "Una lista base para venir comoda y preparada. La iremos ajustando con los detalles especificos del lugar y las actividades.",
@@ -294,7 +294,7 @@ export function App() {
               selectSection("inicio");
             }}
           >
-            Encuentro Micelio
+            <h3>Encuentro Micelio</h3>Sin centro, con raíces
           </a>
           <nav className="orb-menu">
             {sections.map((section, index) => (

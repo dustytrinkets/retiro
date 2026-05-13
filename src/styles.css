@@ -222,7 +222,11 @@ button {
   text-transform: uppercase;
 }
 
-.brand::before {
+.brand h3{
+  text-align: right;
+}
+
+/* .brand::before {
   border: 1.5px solid var(--ochre);
   border-radius: 999px;
   box-shadow:
@@ -231,7 +235,7 @@ button {
   content: "";
   height: 0.86rem;
   width: 0.86rem;
-}
+} */
 
 .orb-menu {
   display: grid;
