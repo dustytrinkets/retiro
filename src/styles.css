@@ -335,7 +335,7 @@ button {
   min-height: 0;
   padding: clamp(1.5rem, 4vw, 5rem);
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .content-card__botany {
@@ -410,7 +410,16 @@ button {
 
 .content-card__details {
   align-self: end;
-  margin-bottom: clamp(4.8rem, 11vw, 8rem);
+  position: relative;
+  z-index: 1;
+}
+
+.content-card__scroll {
+  align-self: end;
+  margin-bottom: 20px;
+  max-height: 100%;
+  min-height: 0;
+  overflow: visible;
   position: relative;
   z-index: 1;
 }
@@ -603,9 +612,24 @@ h3 {
   }
 
   .content-card {
-    height: auto;
+    align-content: start;
     grid-template-columns: 1fr;
-    min-height: 34rem;
+    grid-template-rows: auto auto;
+    height: calc(100dvh - 9.5rem);
+    max-height: none;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content-card__scroll {
+    align-self: start;
+    padding-bottom: 20px;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0.25rem;
   }
 
   .content-card__details {
@@ -673,7 +697,9 @@ h3 {
 
   .content-card {
     border-radius: 1.4rem;
-    min-height: 35rem;
+    height: calc(100dvh - 8.4rem);
+    max-height: none;
+    min-height: 0;
     padding: 1.35rem;
   }
 

@@ -220,6 +220,7 @@ export function App() {
   }
 
   function handleWheel(event) {
+    if (event.target.closest(".content-card")) return;
     if (Math.abs(event.deltaY) < 18 || scrollLockRef.current) return;
 
     const nextIndex = activeSectionIndex + (event.deltaY > 0 ? 1 : -1);
@@ -231,6 +232,11 @@ export function App() {
   }
 
   function handleTouchStart(event) {
+    if (event.target.closest(".content-card")) {
+      touchStartYRef.current = null;
+      return;
+    }
+
     touchStartYRef.current = event.touches[0]?.clientY ?? null;
   }
 
@@ -348,8 +354,10 @@ export function App() {
               ) : null}
             </div>
 
-            <div className="content-card__details">
-              <SectionBody section={activeSection} />
+            <div className="content-card__scroll">
+              <div className="content-card__details">
+                <SectionBody section={activeSection} />
+              </div>
             </div>
           </section>
         </div>
