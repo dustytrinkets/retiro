@@ -6,15 +6,10 @@ const sections = [
   {
     id: "inicio",
     label: "Inicio",
-    eyebrow: "Fin de semana de encuentro",
+    eyebrow: "Del 13 al 15 de Noviembre, 2026",
     title: "Encuentro Micelio",
     text: "Un espacio cuidado para bajar el ritmo, compartir, descansar y reconectar con el cuerpo, la naturaleza y la palabra en grupo.",
-    details: [
-      "Viernes a domingo",
-      "Sierra",
-      "Plazas limitadas",
-      "Probando"
-    ],
+    details: ["Creatividad", "Naturaleza", "Conexión"],
   },
   {
     id: "horarios",
@@ -34,18 +29,24 @@ const sections = [
       {
         day: "Sabado",
         events: [
+          { time: "08:00", title: "Yoga" },
           { time: "09:00", title: "Desayuno tranquilo" },
           { time: "11:00", title: "Practica corporal" },
-          { time: "17:00", title: "Taller y tiempo personal" },
-          { time: "20:30", title: "Cena y fuego" },
+          { time: "13:00", title: "Comida" },
+          { time: "16:00", title: "Taller y tiempo personal" },
+          { time: "18:00", title: "Merienda?" },
+          { time: "18:30", title: "Taller y tiempo personal" },
+          { time: "21:00", title: "Cena y fuego" },
         ],
       },
       {
         day: "Domingo",
         events: [
-          { time: "09:30", title: "Desayuno" },
-          { time: "11:00", title: "Circulo de cierre" },
-          { time: "14:00", title: "Comida ligera y despedida" },
+          { time: "08:00", title: "Yoga" },
+          { time: "09:00", title: "Desayuno tranquilo" },
+          { time: "10:00", title: "Algo?" },
+          { time: "12:00", title: "Cierre del círculo" },
+          { time: "14:00", title: "Comida y despedida" },
         ],
       },
     ],
@@ -288,7 +289,10 @@ export function App() {
           <a
             className="brand"
             href="#inicio"
-            onClick={(event) => event.preventDefault()}
+            onClick={(event) => {
+              event.preventDefault();
+              selectSection("inicio");
+            }}
           >
             Encuentro Micelio
           </a>

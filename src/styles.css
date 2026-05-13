@@ -338,13 +338,14 @@ button {
 
 .content-card::before {
   background: linear-gradient(180deg, rgb(243 232 218) 45%, rgb(244 233 220 / 52%) 50%, rgba(252, 247, 238, 0) 100%);
+  border-radius: calc(clamp(1.65rem, 4.5vw, 3.15rem) - 1px) calc(clamp(2rem, 5vw, 3.75rem) - 1px) 0 0;
   content: "";
   height: 4.8rem;
-  left: 0;
+  left: 1px;
   pointer-events: none;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 1px;
+  top: -1px;
   z-index: 3;
 }
 
@@ -445,6 +446,7 @@ button {
 
 .content-card__scroll {
   align-self: end;
+  padding-top: 40px;
   margin-bottom: 20px;
   max-height: 100%;
   min-height: 0;
@@ -490,7 +492,7 @@ h3 {
 
 .lead {
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  font-size: clamp(1.05rem, 1.8vw, 1rem);
   line-height: 1.75;
   margin-top: clamp(1.25rem, 3vw, 2rem);
   max-width: 38rem;
@@ -534,7 +536,7 @@ h3 {
 
 .detail-row span {
   color: var(--sage-dark);
-  font-weight: 700;
+  font-weight: 500;
   padding: 0.9rem 1rem;
 }
 
@@ -736,6 +738,7 @@ h3 {
   }
 
   .content-card::before {
+    border-radius: calc(1.4rem - 1px) calc(1.4rem - 1px) 0 0;
     height: 5rem;
   }
 
