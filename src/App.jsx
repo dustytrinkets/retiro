@@ -44,8 +44,8 @@ const sections = [
         events: [
           { time: "08:00", title: "Yoga" },
           { time: "09:00", title: "Desayuno tranquilo" },
-          { time: "10:00", title: "Taller TBD?" },
-          { time: "12:00", title: "Cierre del círculo" },
+          { time: "11:00", title: "Taller TBD?" },
+          { time: "13:00", title: "Cierre del círculo" },
           { time: "14:00", title: "Comida y despedida" },
         ],
       },
