@@ -338,25 +338,27 @@ export function App() {
             src={ANILLAS_SRC}
           />
           <section className="content-card" aria-live="polite">
-            <div className="content-card__title">
-              <p className="eyebrow">{activeSection.eyebrow}</p>
-              <h1>{activeSection.title}</h1>
-              <p className="lead">{activeSection.text}</p>
-              {activeSection.action ? (
-                <a
-                  className="text-link"
-                  href={activeSection.action.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {activeSection.action.label}
-                </a>
-              ) : null}
-            </div>
+            <div className="content-card__viewport">
+              <div className="content-card__title">
+                <p className="eyebrow">{activeSection.eyebrow}</p>
+                <h1>{activeSection.title}</h1>
+                <p className="lead">{activeSection.text}</p>
+                {activeSection.action ? (
+                  <a
+                    className="text-link"
+                    href={activeSection.action.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {activeSection.action.label}
+                  </a>
+                ) : null}
+              </div>
 
-            <div className="content-card__scroll">
-              <div className="content-card__details">
-                <SectionBody section={activeSection} />
+              <div className="content-card__scroll">
+                <div className="content-card__details">
+                  <SectionBody section={activeSection} />
+                </div>
               </div>
             </div>
           </section>
