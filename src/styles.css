@@ -326,6 +326,7 @@ button {
       rgba(236, 226, 236, 0.38) 100%
     ),
     var(--paper);
+  background-color: transparent;
   border: 1px solid var(--line);
   border-radius:
     clamp(1.65rem, 4.5vw, 3.15rem) clamp(2rem, 5vw, 3.75rem) clamp(1.55rem, 4vw, 3rem)
