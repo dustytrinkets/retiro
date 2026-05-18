@@ -4,7 +4,7 @@ export const sections = [
     label: "Inicio",
     eyebrow: "Del 13 al 15 de Noviembre, 2026",
     title: "Encuentro Micelio",
-    text: "Un lugar cuidado para bajar el ritmo, compartir, descansar y reconectar con el cuerpo, la naturaleza y la palabra en grupo.",
+    text: "Un lugar preparado para bajar el ritmo, compartir, descansar y reconectar con el cuerpo, la naturaleza y la palabra en grupo.",
     details: ["Creatividad", "Naturaleza", "Conexión"],
   },
   {
