@@ -19,8 +19,8 @@
   </style>
   <rect width="1200" height="630" fill="#e8e0d2"/>
   <rect x="72" y="72" width="1056" height="486" rx="42" fill="#f2eadf" opacity="0.54"/>
+  <image href="plants/inicio.png" x="72" y="72" width="1056" height="486" preserveAspectRatio="xMidYMid meet" opacity="0.16"/>
   <rect x="72" y="72" width="1056" height="486" rx="42" fill="none" stroke="#7a4f35" stroke-opacity="0.12" stroke-width="2"/>
-  <circle cx="600" cy="302" r="168" fill="none" stroke="#7a4f35" stroke-opacity="0.16" stroke-width="3"/>
   <text class="title" x="600" y="288" text-anchor="middle" fill="#2c3b2e" font-size="82" letter-spacing="-3">
     Encuentro Micelio
   </text>
