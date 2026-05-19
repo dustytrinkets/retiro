@@ -2,7 +2,18 @@
   <title id="title">Encuentro Micelio</title>
   <desc id="desc">Sin centro, con raíces</desc>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450&amp;family=Inter:wght@700&amp;display=swap");
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 450;
+      src: url("/fonts/fraunces.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 700;
+      src: url("/fonts/inter-bold.woff2") format("woff2");
+    }
     .title { font-family: "Fraunces", Georgia, serif; font-weight: 450; }
     .subtitle { font-family: "Inter", Arial, sans-serif; font-weight: 700; }
   </style>
