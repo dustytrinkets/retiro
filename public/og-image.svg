@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Encuentro Micelio</title>
+  <desc id="desc">Sin centro, con raíces</desc>
+  <defs>
+    <radialGradient id="earthGlow" cx="18%" cy="18%" r="70%">
+      <stop offset="0" stop-color="#c9b18c" stop-opacity="0.7"/>
+      <stop offset="0.48" stop-color="#e8e0d2"/>
+      <stop offset="1" stop-color="#d2c0aa"/>
+    </radialGradient>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7efe3"/>
+      <stop offset="1" stop-color="#e3d2bd"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#earthGlow)"/>
+  <circle cx="980" cy="120" r="260" fill="#6b8268" opacity="0.14"/>
+  <circle cx="128" cy="520" r="260" fill="#b07848" opacity="0.12"/>
+
+  <rect x="78" y="72" width="1044" height="486" rx="54" fill="url(#paper)" opacity="0.82"/>
+  <rect x="78" y="72" width="1044" height="486" rx="54" fill="none" stroke="#7a4f35" stroke-opacity="0.16" stroke-width="2"/>
+
+  <g fill="none" stroke="#7a4f35" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" opacity="0.52">
+    <path d="M168 424 252 344l96 54 112-112 118 76 100-90"/>
+    <path d="M252 344l32 116M348 398l-32-130M460 286l42 134M578 362l-28 100M678 272l70 118"/>
+  </g>
+  <g>
+    <circle cx="168" cy="424" r="15" fill="#b07848"/>
+    <circle cx="252" cy="344" r="17" fill="#8d6b4f"/>
+    <circle cx="348" cy="398" r="15" fill="#c59a69"/>
+    <circle cx="460" cy="286" r="18" fill="#6b8268"/>
+    <circle cx="578" cy="362" r="15" fill="#b07848"/>
+    <circle cx="678" cy="272" r="17" fill="#8d6b4f"/>
+    <circle cx="748" cy="390" r="13" fill="#c59a69"/>
+  </g>
+
+  <text x="166" y="202" fill="#2c3b2e" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="500" letter-spacing="-4">
+    Encuentro Micelio
+  </text>
+  <text x="172" y="270" fill="#7a4f35" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="7">
+    SIN CENTRO, CON RAÍCES
+  </text>
+  <text x="172" y="322" fill="#566056" font-family="Arial, sans-serif" font-size="28">
+    Del 13 al 15 de Noviembre, 2026
+  </text>
+</svg>
