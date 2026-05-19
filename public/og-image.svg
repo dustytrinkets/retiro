@@ -6,13 +6,13 @@
       font-family: "Fraunces";
       font-style: normal;
       font-weight: 450;
-      src: url("/fonts/fraunces.woff2") format("woff2");
+      src: url("/fonts/fraunces.ttf") format("truetype");
     }
     @font-face {
       font-family: "Inter";
       font-style: normal;
       font-weight: 700;
-      src: url("/fonts/inter-bold.woff2") format("woff2");
+      src: url("/fonts/inter.ttf") format("truetype");
     }
     .title { font-family: "Fraunces", Georgia, serif; font-weight: 450; }
     .subtitle { font-family: "Inter", Arial, sans-serif; font-weight: 700; }
