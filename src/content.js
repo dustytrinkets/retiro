@@ -4,7 +4,7 @@ export const sections = [
     label: "Inicio",
     eyebrow: "13 al 15 de Noviembre, 2026",
     title: "Encuentro Micelio",
-    text: "Donde tu presencia no es opcional sino que es lo que hace que esto sea posible.",
+    text: "Cierra los ojos, respira hondo. Aquí tu presencia no es opcional, es lo que hace que esto sea posible. Un espacio para recordar quién eres en realidad, y al recordar quién eres, rechazas lo que te dijeron que debías ser.",
     details: ["Creatividad", "Naturaleza", "Conexión"],
   },
   {
