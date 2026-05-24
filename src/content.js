@@ -4,7 +4,7 @@ export const sections = [
     label: "Inicio",
     eyebrow: "13 al 15 de Noviembre, 2026",
     title: "Encuentro Micelio",
-    text: "Aquí tu presencia no es opcional, es lo que hace que esto sea posible. Un espacio para recordar quién eres en realidad, con tus pasiones, ideas y creaciones. Cierra los ojos y respira hondo. No existen jerarquías, todas las partes son imprescindibles y cada hilo aporta poder a la red. Tejamos juntas la red del Micelio",
+    text: "Aquí tu presencia no es opcional, es lo que hace que esto sea posible. No existen jerarquías, todas las partes son imprescindibles y cada hilo aporta poder a la red. Un encuentro para recordar quién eres en realidad, con tus pasiones, ideas y creaciones. Cierra los ojos y respira hondo: tejamos juntas la red del Micelio",
     details: ["Creatividad", "Naturaleza", "Conexión"],
   },
   {
