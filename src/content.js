@@ -10,8 +10,8 @@ export const sections = [
   {
     id: "horarios",
     label: "Horarios",
-    eyebrow: "Programa orientativo",
-    title: "Ritmo del fin de semana",
+    eyebrow: "Programa de actividades",
+    title: "Ritmo del encuentro",
     text: "Los horarios se pueden ajustar segun el pulso del grupo. La idea es sostener una estructura clara sin perder espacio para el descanso.",
     schedule: [
       {
