@@ -1,0 +1,18 @@
+src/App.jsx
+  h_39fd2f793212d4 4,6,17-27,72,82-88,98-108,258-272,289-296,298,303-343
+src/content.js
+  h_39fd2f793212d4 5,7,11,14,19-25,31-46,52-64,110-117,120-126,129-166
+src/styles.css
+  h_39fd2f793212d4 442-445,585-586,598-698,768-771,856-859
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "619bf0d5a23521a32d6df2aa9484fa0636ccbb9a",
+  "prompts": {},
+  "humans": {
+    "h_39fd2f793212d4": {
+      "author": "Laura Corbi <lauracvil@ext.inditex.com>"
+    }
+  }
+}
