@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import { ANILLAS_SRC, SECTION_BOTANY } from "./botanyAssets.js";
-import { sections } from "./content.js";
+import { activities, sections } from "./content.js";
 
-function SectionBody({ section }) {
+function SectionBody({ section, onActivitySelect }) {
   if (section.schedule) {
     return (
       <div className="timeline" aria-label="Horarios del retiro">
@@ -14,7 +14,17 @@ function SectionBody({ section }) {
               {day.events.map((event) => (
                 <li key={`${day.day}-${event.time}`}>
                   <span>{event.time}</span>
-                  {event.title}
+                  {event.activity ? (
+                    <button
+                      className="activity-button"
+                      onClick={() => onActivitySelect(event.activity)}
+                      type="button"
+                    >
+                      {event.title}
+                    </button>
+                  ) : (
+                    event.title
+                  )}
                 </li>
               ))}
             </ul>
@@ -59,6 +69,7 @@ function SectionBody({ section }) {
 export function App() {
   const [activeSectionId, setActiveSectionId] = useState("inicio");
   const [transitionDirection, setTransitionDirection] = useState("from-top");
+  const [activeActivityId, setActiveActivityId] = useState(null);
   const scrollLockRef = useRef(false);
   const touchStartYRef = useRef(null);
   const scrollTimeoutRef = useRef(null);
@@ -68,6 +79,13 @@ export function App() {
   const activeSection = sections.find(
     (section) => section.id === activeSectionId,
   );
+  const hasSectionBody = Boolean(
+    activeSection.schedule ||
+    activeSection.cards ||
+    activeSection.details ||
+    activeSection.items?.length,
+  );
+  const activeActivity = activeActivityId ? activities[activeActivityId] : null;
 
   useEffect(() => {
     return () => {
@@ -76,6 +94,17 @@ export function App() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (!activeActivity) return undefined;
+
+    function closeOnEscape(event) {
+      if (event.key === "Escape") setActiveActivityId(null);
+    }
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [activeActivity]);
 
   function lockScrollNavigation() {
     scrollLockRef.current = true;
@@ -226,8 +255,21 @@ export function App() {
             loading="eager"
             src={ANILLAS_SRC}
           />
-          <section className="content-card" aria-live="polite">
-            <div className="content-card__viewport">
+          <section
+            className={
+              hasSectionBody
+                ? "content-card"
+                : "content-card content-card--title-only"
+            }
+            aria-live="polite"
+          >
+            <div
+              className={
+                hasSectionBody
+                  ? "content-card__viewport"
+                  : "content-card__viewport content-card__viewport--title-only"
+              }
+            >
               <div className="content-card__title">
                 <p className="eyebrow">{activeSection.eyebrow}</p>
                 <h1>{activeSection.title}</h1>
@@ -244,15 +286,61 @@ export function App() {
                 ) : null}
               </div>
 
-              <div className="content-card__scroll">
-                <div className="content-card__details">
-                  <SectionBody section={activeSection} />
+              {hasSectionBody ? (
+                <div className="content-card__scroll">
+                  <div className="content-card__details">
+                    <SectionBody
+                      section={activeSection}
+                      onActivitySelect={setActiveActivityId}
+                    />
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </section>
         </div>
       </main>
+      {activeActivity ? (
+        <div
+          className="activity-modal-backdrop"
+          onClick={() => setActiveActivityId(null)}
+        >
+          <section
+            aria-labelledby="activity-modal-title"
+            aria-modal="true"
+            className="activity-modal"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+          >
+            <button
+              aria-label="Cerrar información de la actividad"
+              className="activity-modal__close"
+              onClick={() => setActiveActivityId(null)}
+              type="button"
+            >
+              Cerrar
+            </button>
+            <p className="eyebrow">Programa</p>
+            <h2 id="activity-modal-title">{activeActivity.title}</h2>
+            {activeActivity.subtitle ? (
+              <p className="activity-modal__subtitle">
+                {activeActivity.subtitle}
+              </p>
+            ) : null}
+            {activeActivity.quote ? (
+              <blockquote>
+                <p>{activeActivity.quote}</p>
+                <cite>{activeActivity.quoteSource}</cite>
+              </blockquote>
+            ) : null}
+            <div className="activity-modal__copy">
+              {activeActivity.description.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        </div>
+      ) : null}
     </>
   );
 }

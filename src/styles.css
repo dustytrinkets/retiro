@@ -439,6 +439,10 @@ button {
   -webkit-overflow-scrolling: touch;
 }
 
+.content-card__viewport--title-only {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .content-card__viewport::-webkit-scrollbar {
   display: none;
 }
@@ -578,6 +582,8 @@ h3 {
 
 .timeline__day li {
   color: var(--muted);
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr);
   line-height: 1.35;
 }
 
@@ -587,6 +593,107 @@ h3 {
   font-size: 0.82rem;
   font-weight: 700;
   min-width: 3.4rem;
+}
+
+.activity-button {
+  background: none;
+  border-bottom: 1px solid rgba(176, 120, 72, 0.55);
+  color: var(--sage-dark);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0;
+  text-align: left;
+}
+
+.activity-button:hover,
+.activity-button:focus-visible {
+  color: var(--ochre);
+  outline: none;
+}
+
+.activity-modal-backdrop {
+  align-items: center;
+  backdrop-filter: blur(7px);
+  background: rgba(26, 36, 28, 0.38);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  position: fixed;
+  z-index: 10;
+}
+
+.activity-modal {
+  background:
+    radial-gradient(circle at 95% 4%, rgba(176, 120, 72, 0.19), transparent 12rem),
+    var(--paper-strong);
+  border: 1px solid rgba(176, 120, 72, 0.26);
+  border-radius: 2rem 1.5rem 2.25rem 1.7rem;
+  box-shadow: var(--shadow);
+  max-height: min(48rem, 90dvh);
+  max-width: 44rem;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  position: relative;
+  width: 100%;
+}
+
+.activity-modal h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 450;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  max-width: 32rem;
+}
+
+.activity-modal__close {
+  background: rgba(244, 237, 225, 0.8);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.55rem 0.85rem;
+  position: absolute;
+  right: 1.25rem;
+  text-transform: uppercase;
+  top: 1.25rem;
+}
+
+.activity-modal__subtitle {
+  color: var(--ochre);
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.activity-modal blockquote {
+  border-left: 2px solid var(--ochre);
+  color: var(--muted);
+  font-family: Fraunces, Georgia, serif;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 1.75rem 0;
+  padding-left: 1.2rem;
+}
+
+.activity-modal cite {
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-style: normal;
+  margin-top: 0.7rem;
+}
+
+.activity-modal__copy {
+  color: var(--muted);
+  display: grid;
+  gap: 1rem;
+  line-height: 1.65;
+  margin-top: 1.75rem;
 }
 
 .mini-grid {
@@ -656,6 +763,10 @@ h3 {
     overscroll-behavior: contain;
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .content-card--title-only {
+    height: auto;
   }
 
   .content-card__viewport {
@@ -740,6 +851,10 @@ h3 {
     max-height: none;
     min-height: 0;
     padding: 1.35rem;
+  }
+
+  .content-card--title-only {
+    height: auto;
   }
 
   .content-card::before {
