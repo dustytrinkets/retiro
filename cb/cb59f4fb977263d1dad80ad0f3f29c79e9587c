@@ -1,0 +1,14 @@
+src/content.js
+  h_39fd2f793212d4 74,76-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cbcb59f4fb977263d1dad80ad0f3f29c79e9587c",
+  "prompts": {},
+  "humans": {
+    "h_39fd2f793212d4": {
+      "author": "Laura Corbi <lauracvil@ext.inditex.com>"
+    }
+  }
+}
