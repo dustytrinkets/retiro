@@ -1,0 +1,19 @@
+src/content.js
+  s_3536471859d2de::t_fb6cae47da50a3 84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "73fb1588953094b45fd4fc91d47d5680833431ca",
+  "prompts": {},
+  "sessions": {
+    "s_3536471859d2de": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f18859f5dffeUEJ3G12HTbG1ev",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Laura Corbi <lauracvil@ext.inditex.com>"
+    }
+  }
+}
