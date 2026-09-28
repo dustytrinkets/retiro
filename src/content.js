@@ -91,20 +91,20 @@ export const sections = [
     text: "Una lista base para venir comoda y preparada. La iremos ajustando con los detalles especificos del lugar y las actividades.",
     cards: [
       {
-        title: "Descanso",
-        text: "Ropa comoda, pijama, calcetines calentitos y neceser personal.",
+        title: "Ropa",
+        text: "Trae prendas cómodas, calzado cómodo y algún abrigo para el frío (estamos en la sierra!).",
       },
       {
-        title: "Practica",
-        text: "Esterilla, manta, cuaderno, boligrafo y botella de agua.",
+        title: "Material",
+        text: " Esterilla de yoga, cuarderno, bolígrafo, y termo",
       },
       {
-        title: "Compartir",
-        text: "Algo sencillo para la cena del viernes o un objeto significativo.",
+        title: "Pago",
+        text: "El pago de 196€ se hará en efectivo en el alojamiento. Si has pagado reserva, se descontará esa cantidad del pago final.",
       },
       {
-        title: "Exterior",
-        text: "Calzado comodo, abrigo, chubasquero y linterna si hace falta.",
+        title: "Fluir",
+        text: "Puedes traer cualquier cosa que te apetezca y que quieras compartir en el encuentro: oráculo, instrumento de música, velas, aceites, etc.",
       },
     ],
   },
@@ -137,7 +137,11 @@ export const activities = {
   },
   "bano-otono": {
     title: "Baño de otoño",
-    description: ["Texto a definir."],
+    description: [
+      "Salimos al bosque sin destino ni prisa. Este paseo no va de llegar a ningún sitio, sino de detenernos y apreciar concientemente todo cuanto el ritmo de siempre nos impide ver.",
+      "Con los cinco sentidos abiertos, dejamos que el otoño nos hable. Respirar la tierra húmeda y el aroma de los hongos que nacen a nuestro paso. Escuchar el crujir de las hojas bajo los pies,",
+      "Por el camino iremos recogiendo hojitas caídas, con calma y agradecimiento, eligiendo aquellas que nos llamen la atención. Serán las que después, en el taller de arcilla, dejen su huella en nuestras piezas.",
+    ],
   },
   "tiempo-inventado": {
     title: "El tiempo inventado",
