@@ -103,7 +103,7 @@ export const sections = [
         text: "El pago de 196€ se hará en efectivo en el alojamiento. Si has pagado reserva, se descontará esa cantidad del pago final.",
       },
       {
-        title: "Fluir",
+        title: "Miscelánea",
         text: "Puedes traer cualquier cosa que te apetezca y que quieras compartir en el encuentro: oráculo, instrumento de música, velas, aceites, etc.",
       },
     ],
