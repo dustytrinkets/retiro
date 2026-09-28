@@ -57,7 +57,7 @@ export const sections = [
           { time: "09:30", title: "Desayuno" },
           {
             time: "10:30",
-            title: "Geometría sagrada",
+            title: "Geometría sagrada en Acuarela",
             activity: "acuarela",
           },
           { time: "12:30", title: "Cierre del encuentro" },
@@ -119,7 +119,8 @@ export const activities = {
     ],
   },
   arcilla: {
-    title: "Manos de Tierra: El Camino de la Arcilla",
+    title: "Manos de Tierra",
+    subtitle: "El Camino de la Arcilla",
     description: [
       "De la mano de Camila regresamos a lo más primario: tus manos y la tierra. En este espacio sagrado, trabajaremos con arcilla de secado al aire, ese material vivo que nos devuelve a un gesto que casi hemos olvidado en nuestro día a día.",
       "Aquí no importa el resultado, importa el proceso: cada apretón, cada textura, cada imperfección es parte del camino. Practicaremos el desapego, soltando la necesidad de controlar cómo quedará la pieza final, confiando en que lo que emerja de nuestras manos es exactamente lo que tenía que ser.",
@@ -128,7 +129,8 @@ export const activities = {
     ],
   },
   acuarela: {
-    title: "Geometría Sagrada en Acuarela: Trazo, Calma y Conexión",
+    title: "Geometría Sagrada en Acuarela",
+    subtitle: "Trazo, Calma y Conexión",
     description: [
       "Waladah nos invita a un viaje al centro de la calma a través del trazo y el color. En este espacio sagrado, nos uniremos como la tribu que somos para explorar los principios de la geometría andalusí, esa que adorna nuestro legado histórico y que es reflejo del orden del universo.",
       "Con la guía de la regla y el compás, dibujaremos un patrón tradicional paso a paso, dejando que la mente se silencie y el alma se exprese. Coronaremos la experiencia fluyendo con el agua y los pigmentos de la acuarela.",
@@ -163,7 +165,7 @@ export const activities = {
     ],
   },
   "yoga-sensorial": {
-    title: "Yoga sensorial",
+    title: "Apertura del encuentro & Yoga sensorial",
     description: [
       "Tras la cena, una práctica de yoga inmersiva donde vista, oído, tacto, olfato y gusto serán los protagonistas en una experiencia totalmente sensorial, acompañadas de la magia y energía de la noche en el bosque sagrado de Casa Guindales.",
     ],
