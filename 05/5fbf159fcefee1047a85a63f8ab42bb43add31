@@ -1,0 +1,24 @@
+src/content.js
+  s_3536471859d2de::t_1a9624534cd77a 74,76-77,81,83-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "055fbf159fcefee1047a85a63f8ab42bb43add31",
+  "prompts": {},
+  "humans": {
+    "h_39fd2f793212d4": {
+      "author": "Laura Corbi <lauracvil@ext.inditex.com>"
+    }
+  },
+  "sessions": {
+    "s_3536471859d2de": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f18859f5dffeUEJ3G12HTbG1ev",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Laura Corbi <lauracvil@ext.inditex.com>"
+    }
+  }
+}
