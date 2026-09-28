@@ -136,7 +136,7 @@ export const activities = {
     ],
   },
   "bano-otono": {
-    title: "Baño de otoño",
+    title: "Baño de bosque de otoño",
     description: [
       "Salimos al bosque sin destino ni prisa. Este paseo no va de llegar a ningún sitio, sino de detenernos y apreciar concientemente todo cuanto el ritmo de siempre nos impide ver.",
       "Con los cinco sentidos abiertos, dejamos que el otoño nos hable. Respirar la tierra húmeda y el aroma de los hongos que nacen a nuestro paso. Escuchar el crujir de las hojas bajo los pies,",
