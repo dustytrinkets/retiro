@@ -563,6 +563,19 @@ h3 {
   padding: 0.85rem 1rem;
 }
 
+.location-details {
+  display: grid;
+  gap: 1rem;
+}
+
+.location-map {
+  border: 1px solid rgba(176, 120, 72, 0.2);
+  border-radius: 1.35rem 1.15rem 1.25rem 1.2rem;
+  display: block;
+  height: 16rem;
+  width: 100%;
+}
+
 .timeline {
   display: grid;
   gap: 0.75rem;

@@ -71,16 +71,17 @@ export const sections = [
     label: "Ubicacion",
     eyebrow: "Ubicacion",
     title: "Como llegar",
-    text: "Aqui anadiremos la direccion exacta, el enlace al mapa, opciones de transporte publico y cualquier indicacion importante para llegar con calma.",
+    text: "Aqui puedes encontrar la dirección exacta de Casa Guindales y el enlace al mapa.",
     items: [
-      "Entrada recomendada: viernes entre 17:00 y 18:30.",
-      "Si vienes en coche, confirma si hay plazas para aparcar.",
-      "Coordinaremos coches compartidos cuando tengamos el grupo.",
+      "Entrada recomendada: viernes entre las 18h y las 20h.",
+      "Coordinaremos coches compartidos a través del grupo de whatsapp.",
     ],
     action: {
       label: "Casa Guindales. Valle del Genal",
-      href: "https://maps.google.com",
+      href: "https://maps.app.goo.gl/whtmJ1EguQWQ8Ken9",
     },
+    mapEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.461704898539!2d-5.280713524052228!3d36.56709018080512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0d268fe8730303%3A0xe1829f70f91e8131!2sCasa%20Guindales!5e0!3m2!1sen!2ses!4v1790578557377!5m2!1sen!2ses&t=k",
   },
   {
     id: "llevar",

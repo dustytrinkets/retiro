@@ -57,6 +57,25 @@ function SectionBody({ section, onActivitySelect }) {
     );
   }
 
+  if (section.mapEmbedUrl) {
+    return (
+      <div className="location-details">
+        <ul className="simple-list">
+          {section.items?.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <iframe
+          className="location-map"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          src={section.mapEmbedUrl}
+          title="Mapa de Casa Guindales"
+        />
+      </div>
+    );
+  }
+
   return (
     <ul className="simple-list">
       {section.items?.map((item) => (
